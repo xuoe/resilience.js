@@ -3,6 +3,7 @@ import { createNotifier } from './helpers'
 
 const CONSTANT = 'constant'
 const EXPONENTIAL = 'exponential'
+const DEFAULT_RETRIES = 1
 const DEFAULT_INTERVAL = 1000
 
 export function exponentialRetry(run, retries, interval) {
@@ -20,6 +21,8 @@ function retry(type, run, retries, interval) {
     throw new Error('Expected `run` to be a function.')
   }
 
+  retries = retries || DEFAULT_RETRIES
+  interval = interval || DEFAULT_INTERVAL
   const ctx = createContext(type, retries, interval)
   const notifier = createNotifier()
 
@@ -57,7 +60,7 @@ function createContext(type, retries, interval) {
   return {
     retries: [0, retries || 0], // done, max
     // A list of intervals appropriate for the given back-off type.
-    intervals: createIntervals(retries, interval || DEFAULT_INTERVAL)
+    intervals: createIntervals(retries, interval)
   }
 }
 

@@ -97,7 +97,7 @@ occur.
 
 ## API
 
-#### _`constantRetry(run, retries = 0, interval = 1000)`_: [`Notifier`](#notifier)
+#### _`constantRetry(run, retries = 1, interval = 1000)`_: [`Notifier`](#notifier)
 
   - `run` (*Function*): the task to be performed,
   - `retries` (*Number*): the number of retry attempts,
@@ -123,7 +123,7 @@ made. `context` is a plain object whose shape is:
 The [first example](#usage) demonstrates how the `context` object changes
 over the course of a "retry" period.
 
-#### _`exponentialRetry(run, retries = 0, interval = 1000)`_: [`Notifier`](#notifier)
+#### _`exponentialRetry(run, retries = 1, interval = 1000)`_: [`Notifier`](#notifier)
 
   - `run` (*Function*): the task to be performed,
   - `retries` (*Number*): the number of retry attempts,
@@ -134,7 +134,7 @@ exponentially on subsequent retries; e.g., if `retries` is set to `3` and
 `interval` to `1000`, the first retry attempt will occur after `1000ms`, 
 the second after `2000ms` and the third after `4000ms`.
 
-#### _`deadline(run, ms = 0)`_: [`Notifier`](#notifier)
+#### _`deadline(run, ms = 1000)`_: [`Notifier`](#notifier)
 
   - `run` (*Function*): the task to be performed,
   - `ms` (*Number*): the number of milliseconds to wait before rejecting with

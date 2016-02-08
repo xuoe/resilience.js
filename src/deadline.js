@@ -3,7 +3,7 @@ import { createNotifier } from './helpers'
 
 // Returns a Promise that calls `run` and forcefully rejects with TimeoutError
 // after `ms` if it hasn't been resolved by then.
-export default function deadline(run, ms) {
+export default function deadline(run, ms = 1000) {
   if (typeof run !== 'function') {
     throw new Error('Expected `run` to be a function.')
   }
