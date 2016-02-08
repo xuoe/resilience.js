@@ -1,0 +1,8 @@
+src
+test
+coverage
+.envrc
+.babelrc
+.eslintignore
+.eslintrc
+.travis.yml
