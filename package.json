@@ -1,7 +1,7 @@
 {
   "name": "resilience",
   "description": "Resiliency patterns for JavaScript",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Alex Diaconu <alex@psi.io>",
   "license": "MIT",
   "main": "lib/index.js",
