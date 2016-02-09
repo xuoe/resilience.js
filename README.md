@@ -1,4 +1,4 @@
-# resilience
+# resilience.js
 
 [![Build Status](https://img.shields.io/travis/xuoe/resilience.js.svg?style=flat-square)](https://travis-ci.org/xuoe/resilience.js)
 [![Coverage Status](https://img.shields.io/coveralls/xuoe/resilience.js.svg?style=flat-square)](https://coveralls.io/r/xuoe/resilience.js)
@@ -150,7 +150,10 @@ The `Notifier`'s `notify()` setter method takes a function whose signature is
 
 Note that a similar behavior may be achieved by using
 [`timeout()`](#timeoutpromise-ms-promise) and `catch()`ing errors that equal to
-[`TimeoutError`](#timeouterror).
+[`TimeoutError`](#timeouterror). _However, neither this or `timeout()` cancel
+the underlying pending `Promise`, they merely reject the outer `Promise` without
+waiting for the underlying `Promise` to resolve, which is guaranteed to happen at
+some point in the future._
 
 #### _`Notifier`_
 
